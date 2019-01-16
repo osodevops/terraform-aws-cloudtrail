@@ -13,7 +13,4 @@ resource "aws_cloudtrail" "cloudtrail" {
   is_multi_region_trail = true
   enable_log_file_validation = true
 
-  depends_on = [
-    "aws_s3_bucket.cloudtrail_bucket"
-  ]
 }
