@@ -7,7 +7,7 @@ module "cloudtrail_bucket" {
 }
 
 resource "aws_cloudtrail" "cloudtrail" {
-  name = "Default"
+  name = "${var.account_name}-all-events"
   s3_bucket_name = "cloudtail-${data.aws_caller_identity.current.account_id}"
   include_global_service_events = true
   is_multi_region_trail = true
