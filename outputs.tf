@@ -3,7 +3,7 @@ data "null_data_source" "cloudtrail_outputs" {
     cloudtrail_id = "${aws_cloudtrail.cloudtrail.id}"
     cloudtrail_home_region = "${aws_cloudtrail.cloudtrail.home_region}"
     cloudtrail_arn = "${aws_cloudtrail.cloudtrail.arn}"
-    cloudtrail_bucket_arn = "${aws_s3_bucket.cloudtrail_bucket.arn}"
+    cloudtrail_bucket_name = "${aws_cloudtrail.cloudtrail.s3_bucket_name}"
   }
 }
 
