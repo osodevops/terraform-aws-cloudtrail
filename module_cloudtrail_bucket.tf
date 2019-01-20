@@ -4,6 +4,7 @@ module "cloudtrail_bucket" {
   s3_bucket_policy        = "${data.template_file.cloudtrail_policy.rendered}"
   s3_bucket_force_destroy = "${var.s3_bucket_force_destroy}"
   common_tags             = "${var.common_tags}"
+  //todo: fixed the service side encryption on bucket.
 }
 
 resource "aws_cloudtrail" "cloudtrail" {
