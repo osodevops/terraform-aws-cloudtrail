@@ -1,14 +1,15 @@
 module "cloudtrail_bucket" {
-  source                  = "git::ssh://git@github.com/osodevops/aws-terraform-module-s3.git"
-  s3_bucket_name          = "cloudtail-${data.aws_caller_identity.current.account_id}"
-  s3_bucket_policy        = data.template_file.cloudtrail_policy.rendered
-  s3_bucket_force_destroy = var.s3_bucket_force_destroy
-  common_tags             = var.common_tags
-  block_public_acls       = var.block_public_acls
-  block_public_policy     = var.block_public_policy
-  ignore_public_acls      = var.ignore_public_acls
-  restrict_public_buckets = var.restrict_public_buckets
-  s3_sse_algorithm        = var.s3_sse_algorithm
+  source                              = "git::ssh://git@github.com/osodevops/aws-terraform-module-s3.git"
+  s3_bucket_name                      = "cloudtail-${data.aws_caller_identity.current.account_id}"
+  s3_bucket_policy                    = data.template_file.cloudtrail_policy.rendered
+  s3_bucket_force_destroy             = true
+  enable_lifecycle                    = false
+  block_public_acls                   = true
+  block_public_policy                 = true
+  ignore_public_acls                  = true
+  restrict_public_buckets             = true
+  s3_sse_algorithm                    = "aws:kms"
+  common_tags                         = var.common_tags
 }
 
 resource "aws_cloudtrail" "cloudtrail" {
@@ -20,4 +21,3 @@ resource "aws_cloudtrail" "cloudtrail" {
 
   depends_on = [module.cloudtrail_bucket]
 }
-
