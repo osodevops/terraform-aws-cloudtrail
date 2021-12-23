@@ -19,5 +19,8 @@ resource "aws_cloudtrail" "cloudtrail" {
   is_multi_region_trail         = true
   enable_log_file_validation    = true
 
+  # CloudTrail trails should have CloudWatch log integration enabled
+  cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.log_group.arn}:*"
+
   depends_on = [module.cloudtrail_bucket]
 }
