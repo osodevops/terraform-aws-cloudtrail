@@ -4,22 +4,15 @@
     {
       "Sid": "AWSCloudTrailCreateLogStream2014110",
       "Effect": "Allow",
-      "Action": [
-        "logs:CreateLogStream"
-      ],
-      "Resource": [
-        "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
-      ]
+      "Action": "logs:CreateLogStream",
+      "Resource": "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
+      
     },
     {
       "Sid": "AWSCloudTrailPutLogEvents20141101",
       "Effect": "Allow",
-      "Action": [
-        "logs:PutLogEvents"
-      ],
-      "Resource": [
-        "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
-      ]
+      "Action": "logs:PutLogEvents",
+      "Resource": "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
     }
   ]
 }
