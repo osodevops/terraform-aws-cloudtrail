@@ -8,5 +8,5 @@ locals {
 }
 
 output "cloudtrail_outputs" {
-  value = merge(locals.cloudtrail_outputs)
+  value = merge(local.cloudtrail_outputs)
 }

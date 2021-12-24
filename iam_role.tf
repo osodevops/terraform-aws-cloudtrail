@@ -33,11 +33,11 @@ data "aws_iam_policy_document" "aws_iam_role_policy_document" {
     effect = "Allow"
 
     actions = [
-      "logs:CreateLogStream",
+      "logs:CreateLogStream"
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
+      "${aws_cloudwatch_log_group.log_group.arn}:*"
     ]
   }
   statement {
@@ -45,11 +45,11 @@ data "aws_iam_policy_document" "aws_iam_role_policy_document" {
     effect = "Allow"
 
     actions = [
-      "logs:PutLogEvents",
+      "logs:PutLogEvents"
     ]
 
     resources = [
-      "${aws_cloudwatch_log_group.cloudtrail.arn}:*"
+      "${aws_cloudwatch_log_group.log_group.arn}:*"
     ]
   }
 }
