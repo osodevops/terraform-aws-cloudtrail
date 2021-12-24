@@ -1,4 +1,3 @@
-
 resource "aws_cloudtrail" "cloudtrail" {
   name                          = "${var.account_name}-all-events"
   s3_bucket_name                = "cloudtail-${data.aws_caller_identity.current.account_id}"
