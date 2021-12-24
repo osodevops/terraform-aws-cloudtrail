@@ -1,4 +1,4 @@
-data "null_data_source" "cloudtrail_outputs" {
+locals {
   inputs = {
     cloudtrail_id          = aws_cloudtrail.cloudtrail.id
     cloudtrail_home_region = aws_cloudtrail.cloudtrail.home_region
@@ -8,6 +8,5 @@ data "null_data_source" "cloudtrail_outputs" {
 }
 
 output "cloudtrail_outputs" {
-  value = merge(data.null_data_source.cloudtrail_outputs.inputs)
+  value = merge(locals.cloudtrail_outputs.inputs)
 }
-
