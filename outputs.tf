@@ -1,5 +1,5 @@
 locals {
-  inputs = {
+  cloudtrail_outputs = {
     cloudtrail_id          = aws_cloudtrail.cloudtrail.id
     cloudtrail_home_region = aws_cloudtrail.cloudtrail.home_region
     cloudtrail_arn         = aws_cloudtrail.cloudtrail.arn
@@ -8,5 +8,5 @@ locals {
 }
 
 output "cloudtrail_outputs" {
-  value = merge(locals.cloudtrail_outputs.inputs)
+  value = merge(locals.cloudtrail_outputs)
 }
