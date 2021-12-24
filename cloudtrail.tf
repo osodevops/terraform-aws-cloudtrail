@@ -8,7 +8,6 @@ resource "aws_cloudtrail" "cloudtrail" {
   enable_logging                = true
 
   # CloudTrail trails should have CloudWatch log integration enabled
-
   cloud_watch_logs_role_arn  = aws_iam_role.cloud_trail.arn
   cloud_watch_logs_group_arn = "${aws_cloudwatch_log_group.log_group.arn}:*"
 
