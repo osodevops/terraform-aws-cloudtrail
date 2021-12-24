@@ -13,7 +13,7 @@ module "cloudtrail_bucket" {
 }
 data "aws_iam_policy_document" "s3_bucket_policy" {
   statement {
-    sid = "AWSCloudTrailAclCheck20150319"
+    sid = "AWSCloudTrailAclCheck"
     effect = "Allow"
 
     principals {
@@ -28,7 +28,7 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
     resources = ["arn:aws:s3::cloudtail-${data.aws_caller_identity.current.account_id}"]
   }
   statement {
-    sid = "AWSCloudTrailWrite20150319"
+    sid = "AWSCloudTrailWrite"
     effect = "Allow"
 
     principals {
