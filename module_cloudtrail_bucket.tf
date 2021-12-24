@@ -25,7 +25,7 @@ data "aws_iam_policy_document" "s3_bucket_policy" {
     }
 
     actions = ["s3:GetBucketAcl"]
-    resources = ["arn:aws:s3::cloudtail-${data.aws_caller_identity.current.account_id}/*"]
+    resources = ["arn:aws:s3::cloudtail-${data.aws_caller_identity.current.account_id}"]
   }
   statement {
     sid = "AWSCloudTrailWrite20150319"
