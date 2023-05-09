@@ -3,7 +3,6 @@ module "cloudtrail_bucket" {
   s3_bucket_name                      = "cloudtail-${data.aws_caller_identity.current.account_id}"
   s3_bucket_policy                    = data.aws_iam_policy_document.s3_bucket_policy.json
   s3_bucket_force_destroy             = true
-  enable_lifecycle                    = false
   block_public_acls                   = true
   block_public_policy                 = true
   ignore_public_acls                  = true
